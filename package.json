@@ -2,7 +2,7 @@
   "name": "rui-design",
   "version": "1.0.0",
   "description": "",
-  "main": ".index.js",
+  "main": "./src/lib/index.ts",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config scripts/start.js",
     "build": "cross-env NODE_ENV=production webpack  --config scripts/build.js",
