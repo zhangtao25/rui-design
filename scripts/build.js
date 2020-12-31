@@ -5,6 +5,9 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 
 module.exports = merge(configFactory, {
+  output: {
+    publicPath:"/rui-design/"
+  },
   module: {
     rules: [
       {

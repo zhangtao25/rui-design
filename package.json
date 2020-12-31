@@ -7,14 +7,16 @@
     "start": "cross-env NODE_ENV=development webpack serve --config scripts/start.js",
     "build": "cross-env NODE_ENV=production webpack  --config scripts/build.js",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zhangtao25/rui-design.git"
   },
   "author": "zhangtao25",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/zhangtao25/rui-design/issues"
   },
@@ -56,5 +58,8 @@
     "webpack-dev-server": "^3.11.1",
     "webpack-merge": "^5.7.3",
     "webpackbar": "^5.0.0-3"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
   }
 }

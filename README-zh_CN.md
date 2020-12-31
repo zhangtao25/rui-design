@@ -1,40 +1,40 @@
 # nest-grpc-crud
 
-Grpc crud solution based on nest
+基于nest的grpc crud解决方案
 
-English | [简体中文](./README-zh_CN.md)
+[English](./README.md) | 简体中文
 
-## Table of Contents
+## 目录
 
-- [Features](#Features)
-- [Installing](#Installing)
-- [Example](#Example)
-- [Feedback](#Feedback)
+- [功能](#功能)
+- [安装](#安装)
+- [例子](#例子)
+- [反馈](#反馈)
 - [License](#License)
 
 
-## Features
+## 功能
 
-- Rapid construction of nest-based GRPC micro-service template
-- Batch generate database crud operation
-- Automatically generate proto3 contract files
+- 快速构建基于nest的grpc微服务模板
+- 批量生成数据库crud操作
+- 自动生成proto3契约文件
 
-## Installing
+## 安装
 
-Using git:
+使用git:
 
 ```bash
 $ git clone https://github.com/zhangtao25/nest-grpc-crud.git
 ```
 
 
-## Example
+## 例子
 
-### Please follow the "generate" folder
-This folder holds the core files that generate the code.
+### 请关注generate文件夹
+这个文件夹存放了生成代码的核心文件
 
 ```json
-//modify data.json file
+//修改data.json文件
 {
     "columns": [
         {
@@ -55,12 +55,12 @@ This folder holds the core files that generate the code.
 }
 ```
 
-The terminal runs the command to generate the target file
+终端运行该命令，生成目标文件
 ```bash
 $ node generate/test.js
 ```
 
-Generated code
+生成的代码
 ```ts
 // app.controller.ts
 @Controller()
@@ -100,9 +100,9 @@ export class AppController {
 ```
 
 ```protobuf
-//Proto3 contract document
+//proto3契约文件
 syntax = "proto3";
-package grpcService;
+package grpcService; // 包名
 
 
 message CommonField {
@@ -205,7 +205,7 @@ export class Student {
 
 ```ts
 // app.module.ts
-// Add student entity classes and crud service to the file
+// 在该文件中添加student实体类和crud service
 @Module({
   imports: [
       TypeOrmModule.forRoot({
@@ -229,7 +229,7 @@ export class AppModule {}
 
 ```
 
-Grpc client invocation mode（Matching grpc client address [nest-grpc-crud-client](https://github.com/zhangtao25/nest-grpc-crud-client) ）
+grpc客户端调用方式（配套grpc客户端地址 [nest-grpc-crud-client](https://github.com/zhangtao25/nest-grpc-crud-client) ）
 ```ts
 @Controller('')
 export class AppController implements OnModuleInit {
@@ -267,9 +267,9 @@ export class AppController implements OnModuleInit {
 ```
 
 
-## Feedback
+## 反馈
 
-QQ Group: 1042755904
+QQ群: 1042755904
 
 
 ## License

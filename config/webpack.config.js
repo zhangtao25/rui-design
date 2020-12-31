@@ -65,7 +65,7 @@ module.exports = {
     //   // minRatio: 0.8 // 最小压缩比达到0.8时才会被压缩
     // }),
     new HtmlWebpackPlugin({
-      template: 'public/' + (process.env.NODE_ENV === 'development' ? 'index.html' : 'index.pro.html'),
+      template: 'public/' + (process.env.NODE_ENV === 'development' ? 'index.html' : 'index.html'),
       filename: 'index.html',
       inject: true
     }),
