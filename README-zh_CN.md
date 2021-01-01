@@ -1,6 +1,6 @@
-# nest-grpc-crud
+# rui-design
 
-基于nest的grpc crud解决方案
+一个简约的React UI框架
 
 [English](./README.md) | 简体中文
 

@@ -1,5 +1,1 @@
-import Bottom from './bottom'
-
-export {
-  Bottom
-}
+export { default as Button } from './button'

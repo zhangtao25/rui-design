@@ -1,6 +1,6 @@
-# nest-grpc-crud
+# rui-design
 
-Grpc crud solution based on nest
+A minimalist React UI library
 
 English | [简体中文](./README-zh_CN.md)
 

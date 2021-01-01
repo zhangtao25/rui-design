@@ -1,13 +1,14 @@
-import React from "react"
-import {Bottom} from './lib'
+import React from 'react'
+import { Button } from './lib'
 import './lib/normalize.css'
+import './assets/public.less'
+import HeaderComponent from './layouts/HeaderComponent'
 
 const App = (props: any) => {
   return (
     <div>
-      <Bottom type="primary">
-        点我
-      </Bottom>
+      <HeaderComponent />
+      <Button type="primary">点我</Button>
     </div>
   )
 }
