@@ -376,5 +376,36 @@ template {
   display: none;
 }
 
+.margin {
+  width: 1050px;
+  margin: 0 auto;
+}
 
-/*# sourceMappingURL=main.1a6dd64dc4c691e7110e.chunk.css.map*/
+.HeaderComponent .margin {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.HeaderComponent .margin .right button {
+  margin-left: 10px;
+}
+.HeaderComponent .sticker {
+  width: 100%;
+  height: 1px;
+  background-color: #eaeaea;
+}
+
+.rui-tabs {
+  display: flex;
+}
+.rui-tabs-item {
+  padding: 4px;
+  cursor: pointer;
+  transition: all 200ms ease 0s;
+  text-transform: capitalize;
+  color: #444444;
+}
+
+
+/*# sourceMappingURL=main.a051877a24f094acafbd.chunk.css.map*/
