@@ -6,12 +6,7 @@ const TabsItem = (props: any) => {
 
   const clickHandler = () => {}
   return (
-    <div
-      className="rui-tabs-item"
-      onClick={() => {
-        clickHandler()
-      }}
-    >
+    <div>
       {children}
     </div>
   )

@@ -7,14 +7,39 @@ const Tabs = (props: any) => {
   const [current, setCurrent] = useState(null)
   console.log(children, 'children')
 
+  const clickHandler = (props: any) => {
+    console.log(props)
+    setCurrent(props.value)
+  }
+
   return (
     <div className="rui-tabs">
-      <div className="header">
+      <div className="tabs">
         {children.map((item: any) => {
-          return <div key={item.props.value}>{item.props.label}</div>
+          console.log(item, 'item')
+          return (
+            <div
+              className={`rui-tabs-item ${
+                current === item.props.value ? 'actived' : ''
+              }`}
+              onClick={() => {
+                clickHandler(item.props)
+              }}
+              key={item.props.value}
+            >
+              {item.props.label}
+            </div>
+          )
         })}
       </div>
-      <div>{children[0]}</div>
+      <div className="sticker" />
+      <div className="content">
+        {children.map((item: any) => {
+          if (item.props.value === current) {
+            return <>{item.props.children}</>
+          }
+        })}
+      </div>
     </div>
   )
 }
@@ -25,4 +50,3 @@ type TabsComponent = React.FC & {
 }
 
 export default Tabs as TabsComponent
-// export default Tabs

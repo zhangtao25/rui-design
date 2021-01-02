@@ -39,7 +39,7 @@ const HeaderComponent = (props: any) => {
           </Tabs.Item>
         </Tabs>
       </div>
-      <div className="sticker"></div>
+      {/*<div className="sticker"></div>*/}
     </div>
   )
 }
