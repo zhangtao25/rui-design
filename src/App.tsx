@@ -1,18 +1,15 @@
 import React from 'react'
+
+// 引入rui-design样式
+import './lib/index.less'
 import { Button } from './lib'
-import './lib/normalize.css'
 import './assets/public.less'
 import HeaderComponent from './layouts/HeaderComponent'
-
-// 1
-// 2
-// 3
 
 const App = (props: any) => {
   return (
     <div>
       <HeaderComponent />
-      <Button type="primary">点我</Button>
     </div>
   )
 }

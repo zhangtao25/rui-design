@@ -1,279 +1,69 @@
-# rui-design
+<h1 align="center">Rui Design</h1>
 
-A minimalist React UI library
+<div align="center">
+
+A minimalist React UI library.
+
+</div>
 
 English | [简体中文](./README-zh_CN.md)
 
-## Table of Contents
+## ✨ Features
 
-- [Features](#Features)
-- [Installing](#Installing)
-- [Example](#Example)
-- [Feedback](#Feedback)
-- [License](#License)
+- 🌈 Enterprise-class UI designed for web applications.
+- 📦 A set of high-quality React components out of the box.
+- 🛡 Written in TypeScript with predictable static types.
+- ⚙️ Whole package of design resources and development tools.
+- 🌍 Internationalization support for dozens of languages.
+- 🎨 Powerful theme customization in every detail.
 
+## 🖥 Environment Support
 
-## Features
+- Modern browsers and Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
+- Server-side Rendering
+- [Electron](https://www.electronjs.org/)
 
-- Rapid construction of nest-based GRPC micro-service template
-- Batch generate database crud operation
-- Automatically generate proto3 contract files
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Electron |
+| --- | --- | --- | --- | --- |
+| IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
-## Installing
-
-Using git:
+## 📦 Install
 
 ```bash
-$ git clone https://github.com/zhangtao25/nest-grpc-crud.git
+npm install antd
 ```
 
-
-## Example
-
-### Please follow the "generate" folder
-This folder holds the core files that generate the code.
-
-```json
-//modify data.json file
-{
-    "columns": [
-        {
-            "name": "student",
-            "Name": "Student",
-            "column": [
-                {
-                    "name": "id",
-                    "type": "int32"
-                },
-                {
-                    "name": "name",
-                    "type": "string"
-                }
-            ]
-        }
-    ]
-}
-```
-
-The terminal runs the command to generate the target file
 ```bash
-$ node generate/test.js
+yarn add antd
 ```
 
-Generated code
-```ts
-// app.controller.ts
-@Controller()
-export class AppController {
-    constructor(
-        private readonly studentCrudService: StudentCrudService,
-    
-    ) {
-    }
-    
-    // student
-    @GrpcMethod(StudentCrudService.service, 'Create' + StudentCrudService.method)
-    async createStudent(req): Promise<any> {
-    return await this.studentCrudService.create(req);
-    }
+## 🔨 Usage
 
-    @GrpcMethod(StudentCrudService.service, 'Delete' + StudentCrudService.method)
-    async deleteStudent(req): Promise<any> {
-    const id = req.id;
-    return await this.studentCrudService.delete(id);
-    }
+```jsx
+import { Button, DatePicker } from 'rui-design';
 
-    @GrpcMethod(StudentCrudService.service, 'Update' + StudentCrudService.method)
-    async updateStudent(req): Promise<any> {
-    const id = req.id;
-    delete req.id
-    return await this.studentCrudService.update(id,req);
-    }
-
-    @GrpcMethod(StudentCrudService.service, 'Find' + StudentCrudService.method)
-    async findStudent(req): Promise<any> {
-    const commonField = req.commonField;
-    const entity = req.entity;
-    return await this.studentCrudService.find(entity, commonField);
-    }
-}
+const App = () => (
+  <>
+    <Button type="primary">PRESS ME</Button>
+    <DatePicker placeholder="select date" />
+  </>
+);
 ```
 
-```protobuf
-//Proto3 contract document
-syntax = "proto3";
-package grpcService;
+And import style manually:
 
-
-message CommonField {
-    string pageIndex = 1;
-    string pageSize = 2;
-}
-
-service StudentService {
-    rpc CreateStudent (CreateStudentRequestType) returns (CreateStudentResponseType) {}
-    rpc DeleteStudent (DeleteStudentRequestType) returns (DeleteStudentResponseType) {}
-    rpc UpdateStudent (UpdateStudentRequestType) returns (UpdateStudentResponseType) {}
-    rpc FindStudent (FindStudentRequestType) returns (FindStudentResponseType) {}
-}
-
-//Student
-message Student {
-    
-        int32 id = 1;
-        string name = 2;
-}
-
-message CreateStudentRequestType{
-    
-        int32 id = 1;
-        string name = 2;
-}
-
-message CreateStudentResponseType{
-    int32 responseCode = 2;
-    string responseDesc =  3;
-}
-
-message DeleteStudentRequestType{
-    string id = 1;
-}
-
-message DeleteStudentResponseType{
-    int32 responseCode = 2;
-    string responseDesc =  3;
-}
-
-message UpdateStudentRequestType{
-    
-        int32 id = 1;
-        string name = 2;
-}
-
-message UpdateStudentResponseType{
-    int32 responseCode = 2;
-    string responseDesc =  3;
-}
-
-message FindStudentRequestType{
-    Student entity = 1;
-    CommonField commonField = 2;
-}
-
-message FindStudentResponseType{
-    repeated Student data = 1;
-    int32 responseCode = 2;
-    string responseDesc =  3;
-}
-    
+```jsx
+import 'rui-design/dist/antd.css'; // or 'antd/dist/antd.less'
 ```
 
-```ts
-// apps/student/student.crud.service.ts
+### TypeScript
 
-@Injectable()
-export class StudentCrudService extends CrudService<Student>{
-    constructor(
-        @InjectRepository(Student, 'regConnection') repo
-    ) {
-        super(repo)
-    }
+`antd` is written in TypeScript with complete definitions, check [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) to getting started.
 
-    public static method = 'Student';
-    public static service = 'StudentService';
+## 🌍 Internationalization
 
-    public static request = {};
-    public static response = {};
-}
-```
+Dozens of languages supported in `antd`, see [i18n](https://ant.design/docs/react/i18n).
 
-```ts
-// apps/student/student.entity.ts
+## 🔗 Links
 
-@Entity({
-    name: 'student'
-})
-export class Student {
-
-    @PrimaryGeneratedColumn({ name: 'Id' })
-    id: number;
-
-    @Column({ name: 'Name' })
-    name: string;
-}
-```
-
-```ts
-// app.module.ts
-// Add student entity classes and crud service to the file
-@Module({
-  imports: [
-      TypeOrmModule.forRoot({
-          name: '***',
-          type: 'mysql',
-          host: '***',
-          port: '***',
-          username: '***',
-          password: '***',
-          database: '***',
-          entities:[Student],
-          autoLoadEntities: true,
-          synchronize: true
-      }),
-      TypeOrmModule.forFeature([Student], 'regConnection')
-  ],
-  controllers: [AppController],
-  providers: [StudentCrudService],
-})
-export class AppModule {}
-
-```
-
-Grpc client invocation mode（Matching grpc client address [nest-grpc-crud-client](https://github.com/zhangtao25/nest-grpc-crud-client) ）
-```ts
-@Controller('')
-export class AppController implements OnModuleInit {
-    private studentService;
-
-    constructor(@Inject(ClentServe) private readonly clentServe: ClentServe) {
-    }
-
-    onModuleInit() {
-        this.studentService = this.clentServe.client.getService('StudentService');
-    }
-
-    // Student
-    @Post('createStudent')
-    createStudent(@Body() body) {
-        return this.studentService.createStudent(body);
-    }
-
-    @Post('deleteStudent')
-    deleteStudent(@Body() body) {
-        return this.studentService.deleteStudent(body);
-    }
-
-    @Post('updateStudent')
-    updateStudent(@Body() body) {
-        return this.studentService.updateStudent(body);
-    }
-
-    @Post('findStudent')
-    findStudent(@Body() body) {
-        return this.studentService.findStudent(body);
-    }
-}
-
-```
-
-
-## Feedback
-
-QQ Group: 1042755904
-
-
-## License
-
-[MIT](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2020-present, zhangtao25
+- [Home page](https://zhangtao25.github.io/rui-design/)

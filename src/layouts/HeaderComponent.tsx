@@ -2,7 +2,7 @@ import React from 'react'
 import './HeaderComponent.less'
 import logoPng from './../assets/logo.png'
 import { Button } from '../lib'
-import Tabs from '../lib/tabs'
+import Tabs from '../lib/components/tabs'
 
 const HeaderComponent = (props: any) => {
   const { children, type } = props
