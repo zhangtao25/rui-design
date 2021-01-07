@@ -1,0 +1,1 @@
+gen文件夹为文件生成脚本，负责生成manifest.json文件
