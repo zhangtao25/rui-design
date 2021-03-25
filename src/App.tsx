@@ -9,7 +9,7 @@ import HeaderComponent from './layouts/HeaderComponent'
 const App = (props: any) => {
   useEffect(() => {
     class An {
-      name = 'tao1111'
+      name = 'tao11112222'
     }
 
     const an = new An()
