@@ -1,0 +1,1 @@
+console.log('我是插件的content-scripts')
